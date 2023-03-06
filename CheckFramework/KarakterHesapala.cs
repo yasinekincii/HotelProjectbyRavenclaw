@@ -8,10 +8,15 @@ namespace CheckFramework
 {
     public class KarakterHesapala
     {
-        public static bool KarakterSayisiHesapla(string deg)
+        /// <summary>
+        /// Girilen telefon numarasının değer kontrolü
+        /// </summary>
+        /// <param name="deger"></param>
+        /// <returns></returns>
+        public static bool KarakterSayisiHesapla(string deger)
         {
-            int karakterSayisi = deg.Length;
-            if ((karakterSayisi == 14) && (deg.Substring(0, 1) != "0"))
+            int karakterSayisi = deger.Length;
+            if ((karakterSayisi == 14) && (deger.Substring(0, 1) != "0"))
             {
                 return true;
             }

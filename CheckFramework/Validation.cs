@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace CheckFramework
 {
-    public class Validation
+    public static class Validation
     {
-
-
-        public static bool Validation1(string AdSoyad, string DogumTarihi, string Tc, string TelNo)
+        /// <summary>
+        /// Girilen değerlerin kontrolü
+        /// </summary>
+        /// <param name="AdSoyad"></param>
+        /// <param name="DogumTarihi"></param>
+        /// <param name="Tc"></param>
+        /// <param name="TelNo"></param>
+        /// <returns></returns>
+        public static bool DegerlerinKontrolu(string AdSoyad, string DogumTarihi, string Tc, string TelNo)
         {
-            
-
             if (BosDegerKontrolEt.DegerBosmu(AdSoyad)
                 && BosDegerKontrolEt.DegerBosmu(DogumTarihi)
                 && BosDegerKontrolEt.DegerBosmu(Tc)
@@ -28,20 +32,6 @@ namespace CheckFramework
             {
                 return false;
             }
-
-
-            
         }
-
-
-             
-
-
-
-
-
-
-
-
     }
 }

@@ -8,10 +8,15 @@ namespace CheckFramework
 {
     public class karakterHesaplaTc
     {
-        public static bool KarakterSaysiHesaplaTc(string deg)
+        /// <summary>
+        /// Girilen TC değerinin kontrolü
+        /// </summary>
+        /// <param name="deger"></param>
+        /// <returns></returns>
+        public static bool KarakterSaysiHesaplaTc(string deger)
         {
-            int karakterSayisi = deg.Length;
-            if ((karakterSayisi == 11) && (deg.Substring(0, 1) != "0"))
+            int karakterSayisi = deger.Length;
+            if ((karakterSayisi == 11) && (deger.Substring(0, 1) != "0"))
             {
                 return true;
             }

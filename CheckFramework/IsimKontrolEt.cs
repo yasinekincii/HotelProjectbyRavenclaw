@@ -8,6 +8,11 @@ namespace CheckFramework
 {
     public class IsimKontrolEt
     {
+        /// <summary>
+        /// Girilen string değerde sayı var mı kontrolü
+        /// </summary>
+        /// <param name="ad"></param>
+        /// <returns></returns>
         public static bool KontrolEt(string ad)
         {
             bool hasSay = false;

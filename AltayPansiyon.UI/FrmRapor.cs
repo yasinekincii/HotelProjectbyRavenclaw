@@ -28,6 +28,7 @@ namespace AltayPansiyon.UI
 
         private void FrmRapor_Load(object sender, EventArgs e)
         {
+            // Hizmetler listesindeki bütün TC numaralarını cmbTC combobox'ına ekliyoruz.
             foreach (Hizmet secilenMusteriTc in hizmetler)
             {
                
@@ -35,27 +36,27 @@ namespace AltayPansiyon.UI
 
             }
 
+            //Otelin bütün cirosu lblToplamCiro labelına yazdırılır.
             lblToplamCiro.Text =  (hizmetler.Sum(a=>a.ToplamFiyat)).ToString();
+
+            //Hizmetler dökümü lstMusteriDokumu listbox'ında görüntülenir
             foreach (Hizmet item in hizmetler)
             {
-                lstMusteriDokumu.Items.Add(item.MusteriTc + " Tc Numaralı Müşterinin ödeme miktarı " + item.ToplamFiyat);
-                
+                lstMusteriDokumu.Items.Add(item.MusteriTc + " Tc Numaralı Müşterinin ödeme miktarı " + item.ToplamFiyat);                
             }
-
-
         }
 
+        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Comboboxda seçilen Tc'nin hizmet dökümü listelenir.
             lstMusteriDokumu.Items.Clear();
             foreach (Hizmet item in hizmetler)
             {
-
-                if (cmbTc.SelectedItem == item.MusteriTc)
+                if (cmbTc.SelectedItem.ToString() == item.MusteriTc)
                 {
                     lstMusteriDokumu.Items.Add(item.MusteriTc + " Tc Numaralı Müşterinin ödeme miktarı " + item.ToplamFiyat);
                 }
-
             }
         }
     }

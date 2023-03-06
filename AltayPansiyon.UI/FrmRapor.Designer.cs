@@ -39,67 +39,73 @@
             // lstMusteriDokumu
             // 
             this.lstMusteriDokumu.FormattingEnabled = true;
-            this.lstMusteriDokumu.ItemHeight = 16;
-            this.lstMusteriDokumu.Location = new System.Drawing.Point(113, 159);
+            this.lstMusteriDokumu.Location = new System.Drawing.Point(85, 129);
+            this.lstMusteriDokumu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstMusteriDokumu.Name = "lstMusteriDokumu";
-            this.lstMusteriDokumu.Size = new System.Drawing.Size(526, 84);
+            this.lstMusteriDokumu.Size = new System.Drawing.Size(396, 69);
             this.lstMusteriDokumu.TabIndex = 0;
             // 
             // Satis
             // 
             this.Satis.AutoSize = true;
-            this.Satis.Location = new System.Drawing.Point(110, 130);
+            this.Satis.Location = new System.Drawing.Point(82, 106);
+            this.Satis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Satis.Name = "Satis";
-            this.Satis.Size = new System.Drawing.Size(103, 16);
+            this.Satis.Size = new System.Drawing.Size(84, 13);
             this.Satis.TabIndex = 1;
             this.Satis.Text = "Müşteri Dökümü";
             // 
             // cmbTc
             // 
             this.cmbTc.FormattingEnabled = true;
-            this.cmbTc.Location = new System.Drawing.Point(295, 70);
+            this.cmbTc.Location = new System.Drawing.Point(229, 60);
+            this.cmbTc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbTc.Name = "cmbTc";
-            this.cmbTc.Size = new System.Drawing.Size(121, 24);
+            this.cmbTc.Size = new System.Drawing.Size(92, 21);
             this.cmbTc.TabIndex = 2;
             this.cmbTc.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(115, 78);
+            this.label1.Location = new System.Drawing.Point(86, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 16);
+            this.label1.Size = new System.Drawing.Size(139, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "İlgili müşterinin Tc sini Giriniz";
             // 
             // lblToplamCiro
             // 
             this.lblToplamCiro.AutoSize = true;
-            this.lblToplamCiro.Location = new System.Drawing.Point(219, 316);
+            this.lblToplamCiro.Location = new System.Drawing.Point(164, 257);
+            this.lblToplamCiro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblToplamCiro.Name = "lblToplamCiro";
-            this.lblToplamCiro.Size = new System.Drawing.Size(0, 16);
+            this.lblToplamCiro.Size = new System.Drawing.Size(0, 13);
             this.lblToplamCiro.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(122, 316);
+            this.label3.Location = new System.Drawing.Point(92, 257);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 16);
+            this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Toplam Ciro =";
             // 
             // FrmRapor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblToplamCiro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbTc);
             this.Controls.Add(this.Satis);
             this.Controls.Add(this.lstMusteriDokumu);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmRapor";
             this.Text = "Rapor";
             this.Load += new System.EventHandler(this.FrmRapor_Load);

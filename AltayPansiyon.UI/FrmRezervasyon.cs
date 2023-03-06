@@ -17,19 +17,17 @@ namespace AltayPansiyon.UI
 {
     public partial class FrmRezervasyon : Form
     {
-        List<OdaRezarvasyon> rezarvasyonlar = new List<OdaRezarvasyon>();
+        List<OdaRezarvasyon> rezarvasyonlar = new List<OdaRezarvasyon>();   
         Button tiklanilanButton = null;
 
         public FrmRezervasyon()
         {
             InitializeComponent();
         }
-
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            Button btnKral = new Button();
+            // Kral dairesi butonu oluşturuldu.
+            Button btnKral = new Button();      
             btnKral.Text = "Kral Dairesi";
             btnKral.BackColor = Color.Yellow;
             btnKral.Width = 370;
@@ -51,15 +49,21 @@ namespace AltayPansiyon.UI
             OdaBilgileri(300, 310, 150, 3, 3);
 
 
-
             btnEkle.Enabled = false;
             btnAraToplam.Enabled = false;
 
         }
-        private void OdaBilgileri(int ilkOdaNo, int sonOdaNo, double fiyat, sbyte katNo, byte yatakSayisi)
+
+        /// <summary>
+        /// OdaBilgileri metodu odanın butonlarını oluşturur.
+        /// </summary>
+        /// <param name="ilkOdaNo"></param>
+        /// <param name="sonOdaNo"></param>
+        /// <param name="fiyat"></param>
+        /// <param name="katNo"></param>
+        /// <param name="yatakSayisi"></param>
+        private void OdaBilgileri(int ilkOdaNo, int sonOdaNo, double fiyat, sbyte katNo, byte yatakSayisi)  
         {
-
-
             int sayac = ilkOdaNo;
             for (int i = ilkOdaNo; i < sonOdaNo; i++)
             {
@@ -77,23 +81,19 @@ namespace AltayPansiyon.UI
                     YatakSayisi = yatakSayisi
 
                 };
-
-
                 btn.Click += btn_Click;
                 flKat1.Controls.Add(btn);
 
             }
         }
         
+        
         private void btn_Click(object sender, EventArgs e)
         {
+            // Seçilen buton tiklanilanButton değişkene atandı.
             tiklanilanButton = sender as Button;
             btnEkle.Enabled = true;
             btnAraToplam.Enabled = true;
-
-            
-
-
         }
 
         private void btnEkle_Click(object sender, EventArgs e)
@@ -107,9 +107,10 @@ namespace AltayPansiyon.UI
             
             Oda oda1 = tiklanilanButton.Tag as Oda;
 
-            
-            if ((kisiSayisi <= oda1.YatakSayisi) && (kisiSayisi != 0)
-                && CheckFramework.Validation.Validation1(txtAdSoyad.Text, mskDogumDate.Text, mskTc.Text, mskTelNo.Text))
+            // Girilen rezervason bilgilerinin değerlerinin kontrolü ve doğru ise bu değerlerin rezervasyonlar listesine eklenmesi
+            if ((kisiSayisi <= oda1.YatakSayisi)&&
+                (kisiSayisi != 0)&&
+                CheckFramework.Validation.DegerlerinKontrolu(txtAdSoyad.Text, mskDogumDate.Text, mskTc.Text, mskTelNo.Text))
             {
 
                 if (oda1.OdaDurumu == OdaDurumu.Bos)
@@ -134,43 +135,37 @@ namespace AltayPansiyon.UI
                         
                     });
 
+                    // Rezervasyonların içinde dolaşarak girilen TC bilgisiyle aynı olan kişinin rezervasyon bilgileri görüntülenir.
                     foreach (OdaRezarvasyon oda in rezarvasyonlar)
                     {
                         if (mskTc.Text == oda.MusteriBilgileri.TC)
                         {
-                            lstRezervasyonBilgileri.Items.Add(oda);
+                            lstRezervasyonBilgileri.Items.Add(oda); 
                             FormuTemizle();
                         }
-
                     }
-
-
                 }
                 else
                 {
                     MessageBox.Show("Oda Dolu.");
                 }
-
-
-
             }
             else
             {
                 MessageBox.Show("Lütfen değerleri eksiksiz ve tam giriniz.(Oda seçmeyi unutmayın).");
             }
-
-
-
         }
 
         private void btnAraToplam_Click(object sender, EventArgs e)
         {
+            // Seçilen odanın günlük fiyatı görüntülendi.
             Oda rezarvasyon1 = tiklanilanButton.Tag as Oda;
             lblGunlukUcretGoster.Text = rezarvasyon1.GunlukFiyat.ToString();
         }
 
         private void btnGec_Click(object sender, EventArgs e)
         {
+            //En az bir rezervasyon yapıldı ise kullanıcı FrmCikis formuna yönlendirilir
             if (rezarvasyonlar.Count == 0)
             {
                 MessageBox.Show("Rezervasyon oluşturmadan diğer forma geçiş yapamazsınız.");
@@ -184,6 +179,9 @@ namespace AltayPansiyon.UI
             }
         }
 
+        /// <summary>
+        /// FrmRezervasyon ekranını temizliyor.
+        /// </summary>
         private void FormuTemizle()
         {
             txtAdSoyad.Text = mskDogumDate.Text = mskTc.Text = mskTelNo.Text = string.Empty;
